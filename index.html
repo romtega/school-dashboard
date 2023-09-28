@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
       rel="stylesheet"
     />
     <!--FAVICON-->
@@ -28,6 +28,99 @@
     <title>Alumnos | Dashboard</title>
   </head>
   <body>
-    <h1>hello world</h1>
+    <header class="header">
+      <a href="#"><span class="material-icons-round">school</span></a>
+      <nav class="main-nav">
+        <div class="user-img">
+          <span class="material-icons-round"> account_circle </span>
+        </div>
+        <button class="btn btn-logout hidden">Logout</button>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="section-dashboard">
+        <div class="dashboard-container">
+          <div class="dashboard-table">
+            <h1 class="heading-primary">Panel de Alumnos</h1>
+            <table>
+              <thead>
+                <tr>
+                  <th><h2>Nombre</h2></th>
+                  <th><h2>Apellidos</h2></th>
+                  <th><h2>Edad</h2></th>
+                  <th><h2>Materias inscritas</h2></th>
+                  <th><h2>Calificacion</h2></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Josellys</td>
+                  <td>Aguilarte Inojosa</td>
+                  <td>30</td>
+                  <td>4</td>
+                  <td>9.5</td>
+                </tr>
+                <tr>
+                  <td>Josellys</td>
+                  <td>Aguilarte Inojosa</td>
+                  <td>30</td>
+                  <td>4</td>
+                  <td>9.5</td>
+                </tr>
+                <tr>
+                  <td>Josellys</td>
+                  <td>Aguilarte Inojosa</td>
+                  <td>30</td>
+                  <td>4</td>
+                  <td>9.5</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="table-btns">
+              <button class="btn btn-new">Nuevo alumno</button>
+              <a href="#">Volver al inicio </a>
+            </div>
+          </div>
+          <div class="dashboard-info">
+            <h1 class="heading-secondary">Informacion de usuario</h1>
+            <div class="student-img">
+              <img src="/img/students/ben.jpg" alt="" />
+            </div>
+            <h2 class="heading-tertiary">Nombre del usuario</h2>
+            <span>Calificacion:</span>
+            <span>9.4</span>
+            <div class="info-courses">
+              <div class="course">
+                <p>Javascript</p>
+                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
+                <p>Joel Martinez</p>
+              </div>
+              <div class="course">
+                <p>Python</p>
+                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
+                <p>Joel Martinez</p>
+              </div>
+              <div class="course">
+                <p>Ruby on Rails</p>
+                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
+                <p>Joel Martinez</p>
+              </div>
+            </div>
+            <div class="info-edit">
+              <button class="btn btn-delete">Borrar Alumno</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer-text">
+        Hecho por
+        <a href="https://github.com/romtega" target="_blank"> RoM</a>
+      </p>
+      <p class="footer-link">
+        <a href="mailto:romtega88@gmail.com">romtega88@gmail.com</a>
+      </p>
+    </footer>
   </body>
 </html>
