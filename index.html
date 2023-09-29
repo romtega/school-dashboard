@@ -45,23 +45,26 @@
             </div>
             <div class="table-sort">
               <a href="#"
-                ><ion-icon class="sort-icon" name="options-outline"></ion-icon
+                ><ion-icon class="add-icon" name="person-add"></ion-icon
+              ></a>
+              <a href="#"
+                ><ion-icon class="delete-icon" name="trash"></ion-icon
               ></a>
             </div>
             <table>
               <thead>
                 <tr>
                   <th></th>
-                  <th><h2>Nombre</h2></th>
-                  <th><h2>Apellidos</h2></th>
-                  <th><h2>Edad</h2></th>
-                  <th><h2>ID</h2></th>
-                  <th><h2>Materias inscritas</h2></th>
-                  <th><h2>Calificacion</h2></th>
+                  <th>Nombre</th>
+                  <th>Apellidos</th>
+                  <th>Edad</th>
+                  <th>ID</th>
+                  <th>No. Materias</th>
+                  <th>Calificacion</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr class="row-gray">
                   <td><img src="/img/students/ben.jpg" alt="" /></td>
                   <td>Josellys</td>
                   <td>Aguilarte Inojosa</td>
@@ -79,7 +82,43 @@
                   <td>4</td>
                   <td>9.5</td>
                 </tr>
+                <tr class="row-gray">
+                  <td><img src="/img/students/ben.jpg" alt="" /></td>
+                  <td>Josellys</td>
+                  <td>Aguilarte Inojosa</td>
+                  <td>30</td>
+                  <td>#123456</td>
+                  <td>4</td>
+                  <td>9.5</td>
+                </tr>
                 <tr>
+                  <td><img src="/img/students/ben.jpg" alt="" /></td>
+                  <td>Josellys</td>
+                  <td>Aguilarte Inojosa</td>
+                  <td>30</td>
+                  <td>#123456</td>
+                  <td>4</td>
+                  <td>9.5</td>
+                </tr>
+                <tr class="row-gray">
+                  <td><img src="/img/students/ben.jpg" alt="" /></td>
+                  <td>Josellys</td>
+                  <td>Aguilarte Inojosa</td>
+                  <td>30</td>
+                  <td>#123456</td>
+                  <td>4</td>
+                  <td>9.5</td>
+                </tr>
+                <tr>
+                  <td><img src="/img/students/ben.jpg" alt="" /></td>
+                  <td>Josellys</td>
+                  <td>Aguilarte Inojosa</td>
+                  <td>30</td>
+                  <td>#123456</td>
+                  <td>4</td>
+                  <td>9.5</td>
+                </tr>
+                <tr class="row-gray">
                   <td><img src="/img/students/ben.jpg" alt="" /></td>
                   <td>Josellys</td>
                   <td>Aguilarte Inojosa</td>
@@ -90,21 +129,14 @@
                 </tr>
               </tbody>
             </table>
-            <div class="table-btns">
-              <a href="#"
-                ><ion-icon class="add-icon" name="person-add"></ion-icon
-              ></a>
-              <a href="#">Volver al inicio </a>
-            </div>
           </div>
           <aside class="dashboard-info">
-            <h2 class="heading-secondary">Información de usuario</h2>
             <div class="student-img">
               <img src="/img/students/ben.jpg" alt="" />
             </div>
-            <h3 class="heading-tertiary">Nombre del usuario</h3>
+            <h2 class="heading-secondary">Josellys Aguilarte Inojosa</h2>
             <div class="student-info">
-              <div>
+              <div class="info">
                 <p>Edad</p>
                 <span>30</span>
               </div>
@@ -123,32 +155,34 @@
                 </span>
               </div>
             </div>
-            <h3 class="heading-tertiary">Cursos</h3>
+            <h3 class="heading-tertiary">Materias</h3>
             <div class="info-courses">
               <div class="course">
-                <span>Javascript</span>
-                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
+                <span class="javascript">Javascript</span>
                 <p>Joel Martinez</p>
+                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
               </div>
               <div class="course">
-                <span>Python</span>
-                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
+                <span class="python">Python</span>
                 <p>Joel Martinez</p>
+                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
               </div>
               <div class="course">
-                <span>Ruby on Rails</span>
-                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
+                <span class="ruby">Ruby on Rails</span>
                 <p>Joel Martinez</p>
+                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
               </div>
-            </div>
-            <div class="info-edit">
-              <button class="btn btn-delete">Borrar Alumno</button>
+              <div class="course">
+                <span class="swift">Ruby on Rails</span>
+                <p>Joel Martinez</p>
+                <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
+              </div>
             </div>
           </aside>
         </div>
       </section>
     </main>
-    <footer class="footer">
+    <!-- <footer class="footer">
       <p class="footer-text">
         Hecho por
         <a href="https://github.com/romtega" target="_blank"> RoM</a>
@@ -156,7 +190,7 @@
       <p class="footer-link">
         <a href="mailto:romtega88@gmail.com">romtega88@gmail.com</a>
       </p>
-    </footer>
+    </footer> -->
     <!--ION ICONS-->
     <script
       type="module"

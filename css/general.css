@@ -21,9 +21,9 @@
   --color-dark: #363949;
   --color-dark-variant: #677483;
   --color-background: #f6f6f9;
-  --color-ruby: #dc143c;
-  --color-javacript: #ffff00;
-  --color-python: #3776ab;
+  --color-ruby: #dc143c85;
+  --color-javascript: #ffff009b;
+  --color-python: #507ea48e;
   --color-swift: #ffac45;
 
   --border-radius: 2rem;
@@ -59,24 +59,37 @@ main {
   flex: 1;
 }
 
+img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.row-gray {
+  background-color: var(--color-background);
+}
+
 /* .hidden {
   display: none;
 } */
 
 .heading-primary {
   font-weight: 800;
-  font-size: 4.4rem;
+  font-size: 3.8rem;
+  color: var(--color-dark);
   text-align: center;
 }
 
 .heading-secondary {
   font-weight: 600;
-  font-size: 3.6rem;
+  font-size: 2.8rem;
+  color: var(--color-dark);
 }
 
 .heading-tertiary {
   font-weight: 500;
-  font-size: 3rem;
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--color-dark);
 }
 
 .btn,
@@ -95,4 +108,20 @@ main {
 
 .btn-logout {
   background-color: var(--color-secondary);
+}
+
+.javascript {
+  background-color: var(--color-javascript);
+}
+
+.ruby {
+  background-color: var(--color-ruby);
+}
+
+.python {
+  background-color: var(--color-python);
+}
+
+.swift {
+  background-color: var(--color-swift);
 }

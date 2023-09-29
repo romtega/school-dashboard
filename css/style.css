@@ -3,13 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4.2rem 2.4rem;
-  height: 6rem;
+  padding: 0.6rem 2.4rem;
 }
 
 .logo-icon {
-  height: 4.8rem;
-  width: 4.8rem;
+  height: 3.6rem;
+  width: 3.6rem;
   color: var(--color-primary);
   background-color: var(--color-light);
   padding: 1.2rem;
@@ -32,18 +31,18 @@
 
 .dashboard-container {
   display: flex;
-  gap: 4rem;
-  margin: 2.4rem;
+  gap: 2rem;
+  margin: 1.2rem 2.4rem;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-2);
-  padding: 2.4rem;
+  padding: 1.2rem;
 }
 
 .dashboard-table {
   flex: 1;
 }
 
-/************** DASHBOARD-SORT ***************/
+/************** DASHBOARD-SEARCH ***************/
 
 .table-search {
   display: flex;
@@ -52,7 +51,7 @@
   background-color: var(--color-background);
   border-radius: var(--border-radius-2);
   padding: 1rem 2.4rem;
-  margin: 1.6rem 0;
+  margin: 1.2rem 0;
 }
 
 .table-search:hover,
@@ -65,7 +64,7 @@
   border: none;
   outline: none;
   background-color: inherit;
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .search-icon {
@@ -76,9 +75,18 @@
 .table-sort {
   display: flex;
   justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.sort-icon {
+.add-icon {
+  height: 3.2rem;
+  width: 3.2rem;
+  color: var(--color-dark);
+}
+
+.delete-icon {
   height: 3.2rem;
   width: 3.2rem;
   color: var(--color-dark);
@@ -89,29 +97,109 @@
 .dashboard-table table {
   background-color: var(--color-white);
   width: 100%;
-  padding: 2.4rem;
+  padding: 1.2rem 0.6rem;
   text-align: center;
-  border-radius: var(--card-border-radius);
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  border-collapse: collapse;
 }
 
-.table-btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.dashboard-table th {
+  font-size: 1.8rem;
+  padding-bottom: 2.4rem;
+}
+
+.dashboard-table td {
+  height: 6.2rem;
+  font-size: 1.4rem;
+  padding: 0.4rem 0;
+}
+
+.dashboard-table tr {
+  color: var(--color-dark-variant);
+  cursor: pointer;
+}
+
+.dashboard-table tr:hover,
+.dashboard-table tr:active {
+  color: var(--color-dark);
+}
+
+.dashboard-table img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+/************** DASHBOARD-INFO ***************/
+
+.dashboard-info {
+  padding: 0 1.2rem;
+}
+.student-img {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.student-img img {
+  height: 18rem;
 }
 
 .student-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 4rem;
+  margin: 1.8rem 0 3.6rem;
+  text-align: center;
+}
 
-  gap: 1rem;
+.student-info p {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--color-dark-variant);
+}
+
+.student-info span {
+  font-size: 1.4rem;
+  color: var(--color-info-dark);
 }
 
 .info-courses {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
 }
 
+.course {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.course span {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.course p {
+  font-size: 1.6rem;
+  color: var(--color-dark-variant);
+}
+
+.course img {
+  height: 5.4rem;
+}
 .info-edit {
   display: flex;
   justify-content: end;
