@@ -1,3 +1,38 @@
+/* 01 TYPOGRAPHY SYSTEM
+  - Font sizes (px):
+  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+  --- 07 WHITESPACE
+  - Spacing system (px)
+  2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+:root {
+  --color-primary: #69db7c;
+  --color-secondary: #8ce99a;
+  --color-mid: #ebfbee;
+  --color-light: #d3f9d8;
+  --color-danger: #ff0060;
+  --color-success: #1b9c85;
+  --color-warning: #f7d060;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-dark: #363949;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+  --color-ruby: #dc143c;
+  --color-javacript: #ffff00;
+  --color-python: #3776ab;
+  --color-swift: #ffac45;
+
+  --border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 1.2rem;
+
+  --box-shadow: 1rem 1rem 4rem 2rem var(--color-light);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -31,6 +66,7 @@ main {
 .heading-primary {
   font-weight: 800;
   font-size: 4.4rem;
+  text-align: center;
 }
 
 .heading-secondary {
@@ -43,27 +79,20 @@ main {
   font-size: 3rem;
 }
 
-.material-icons-round {
-  font-family: "Material Icons Round";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 48px; /* Preferred icon size */
+.btn,
+.btn:link,
+.btn:visited {
   display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
+  padding: 1.6rem 3.2rem;
+  border-radius: var(--border-radius-2);
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: "liga";
+.btn-logout {
+  background-color: var(--color-secondary);
 }

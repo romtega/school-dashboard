@@ -4,15 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--GOOGLE FONTS AND ICONS-->
+    <!--GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
       rel="stylesheet"
     />
     <!--FAVICON-->
@@ -29,10 +25,10 @@
   </head>
   <body>
     <header class="header">
-      <a href="#"><span class="material-icons-round">school</span></a>
+      <a href="#"><ion-icon class="logo-icon" name="school"></ion-icon></a>
       <nav class="main-nav">
         <div class="user-img">
-          <span class="material-icons-round"> account_circle </span>
+          <ion-icon class="user-icon" name="person-circle"></ion-icon>
         </div>
         <button class="btn btn-logout hidden">Logout</button>
       </nav>
@@ -40,68 +36,107 @@
     <main class="main">
       <section class="section-dashboard">
         <div class="dashboard-container">
+          <!-- se puede agregar la clase a section-dashboard container-->
           <div class="dashboard-table">
             <h1 class="heading-primary">Panel de Alumnos</h1>
+            <div class="table-search">
+              <ion-icon class="search-icon" name="search"></ion-icon>
+              <input type="text" />
+            </div>
+            <div class="table-sort">
+              <a href="#"
+                ><ion-icon class="sort-icon" name="options-outline"></ion-icon
+              ></a>
+            </div>
             <table>
               <thead>
                 <tr>
+                  <th></th>
                   <th><h2>Nombre</h2></th>
                   <th><h2>Apellidos</h2></th>
                   <th><h2>Edad</h2></th>
+                  <th><h2>ID</h2></th>
                   <th><h2>Materias inscritas</h2></th>
                   <th><h2>Calificacion</h2></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
+                  <td><img src="/img/students/ben.jpg" alt="" /></td>
                   <td>Josellys</td>
                   <td>Aguilarte Inojosa</td>
                   <td>30</td>
+                  <td>#123456</td>
                   <td>4</td>
                   <td>9.5</td>
                 </tr>
                 <tr>
+                  <td><img src="/img/students/ben.jpg" alt="" /></td>
                   <td>Josellys</td>
                   <td>Aguilarte Inojosa</td>
                   <td>30</td>
+                  <td>#123456</td>
                   <td>4</td>
                   <td>9.5</td>
                 </tr>
                 <tr>
+                  <td><img src="/img/students/ben.jpg" alt="" /></td>
                   <td>Josellys</td>
                   <td>Aguilarte Inojosa</td>
                   <td>30</td>
+                  <td>#123456</td>
                   <td>4</td>
                   <td>9.5</td>
                 </tr>
               </tbody>
             </table>
             <div class="table-btns">
-              <button class="btn btn-new">Nuevo alumno</button>
+              <a href="#"
+                ><ion-icon class="add-icon" name="person-add"></ion-icon
+              ></a>
               <a href="#">Volver al inicio </a>
             </div>
           </div>
-          <div class="dashboard-info">
-            <h1 class="heading-secondary">Informacion de usuario</h1>
+          <aside class="dashboard-info">
+            <h2 class="heading-secondary">Información de usuario</h2>
             <div class="student-img">
               <img src="/img/students/ben.jpg" alt="" />
             </div>
-            <h2 class="heading-tertiary">Nombre del usuario</h2>
-            <span>Calificacion:</span>
-            <span>9.4</span>
+            <h3 class="heading-tertiary">Nombre del usuario</h3>
+            <div class="student-info">
+              <div>
+                <p>Edad</p>
+                <span>30</span>
+              </div>
+              <div>
+                <p>Genero</p>
+                <span>Femenino</span>
+              </div>
+              <div>
+                <p>ID</p>
+                <span>#123456</span>
+              </div>
+              <div>
+                <p>Contacto</p>
+                <span
+                  ><a href="mailto:hello@omnifood.com">hello@omnifood.com</a>
+                </span>
+              </div>
+            </div>
+            <h3 class="heading-tertiary">Cursos</h3>
             <div class="info-courses">
               <div class="course">
-                <p>Javascript</p>
+                <span>Javascript</span>
                 <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
                 <p>Joel Martinez</p>
               </div>
               <div class="course">
-                <p>Python</p>
+                <span>Python</span>
                 <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
                 <p>Joel Martinez</p>
               </div>
               <div class="course">
-                <p>Ruby on Rails</p>
+                <span>Ruby on Rails</span>
                 <img src="/img/teachers/dave.jpg" alt="" class="teacher-img" />
                 <p>Joel Martinez</p>
               </div>
@@ -109,7 +144,7 @@
             <div class="info-edit">
               <button class="btn btn-delete">Borrar Alumno</button>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
     </main>
@@ -122,5 +157,14 @@
         <a href="mailto:romtega88@gmail.com">romtega88@gmail.com</a>
       </p>
     </footer>
+    <!--ION ICONS-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

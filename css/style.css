@@ -1,27 +1,111 @@
+/************** NAVBAR ***************/
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 4.2rem 2.4rem;
+  height: 6rem;
+}
+
+.logo-icon {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: var(--color-primary);
+  background-color: var(--color-light);
+  padding: 1.2rem;
+  border-radius: 50%;
 }
 
 .main-nav {
   display: flex;
+  align-items: center;
+  gap: 2rem;
 }
+
+.user-icon {
+  height: 6rem;
+  width: 6rem;
+  color: var(--color-dark);
+}
+
+/************** DASHBOARD ***************/
 
 .dashboard-container {
   display: flex;
-  margin: 0 4.8rem;
-  background-color: #999;
+  gap: 4rem;
+  margin: 2.4rem;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-2);
+  padding: 2.4rem;
 }
 
 .dashboard-table {
   flex: 1;
 }
 
+/************** DASHBOARD-SORT ***************/
+
+.table-search {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-2);
+  padding: 1rem 2.4rem;
+  margin: 1.6rem 0;
+}
+
+.table-search:hover,
+.table-search:active {
+  box-shadow: 0 1px 3px rgba(32, 33, 36, 0.28);
+}
+
+.table-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-size: 2.4rem;
+}
+
+.search-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.table-sort {
+  display: flex;
+  justify-content: end;
+}
+
+.sort-icon {
+  height: 3.2rem;
+  width: 3.2rem;
+  color: var(--color-dark);
+}
+
+/************** TABLE ***************/
+
+.dashboard-table table {
+  background-color: var(--color-white);
+  width: 100%;
+  padding: 2.4rem;
+  text-align: center;
+  border-radius: var(--card-border-radius);
+  transition: all 0.3s ease;
+}
+
 .table-btns {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.student-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1rem;
 }
 
 .info-courses {
@@ -31,4 +115,8 @@
 .info-edit {
   display: flex;
   justify-content: end;
+}
+
+.footer {
+  text-align: center;
 }
