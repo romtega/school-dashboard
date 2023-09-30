@@ -3,12 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem 2.4rem;
+  padding: 0.4rem 3.6rem;
 }
 
 .logo-icon {
-  height: 3.6rem;
-  width: 3.6rem;
+  height: 4.2rem;
+  width: 4.2rem;
   color: var(--color-primary);
   background-color: var(--color-light);
   padding: 1.2rem;
@@ -22,8 +22,8 @@
 }
 
 .user-icon {
-  height: 6rem;
-  width: 6rem;
+  height: 5.4rem;
+  width: 5.4rem;
   color: var(--color-dark);
 }
 
@@ -31,11 +31,13 @@
 
 .dashboard-container {
   display: flex;
-  gap: 2rem;
-  margin: 1.2rem 2.4rem;
+  gap: 4rem;
+  margin: 2.4rem 3.6rem;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-2);
-  padding: 1.2rem;
+  padding: 2.4rem;
+  overflow: hidden;
+  height: 85vh;
 }
 
 .dashboard-table {
@@ -94,14 +96,23 @@
 
 /************** TABLE ***************/
 
+.table-container {
+  max-height: calc(100vh - 330px);
+  overflow-y: auto;
+}
+
 .dashboard-table table {
-  background-color: var(--color-white);
   width: 100%;
-  padding: 1.2rem 0.6rem;
+  padding: 0.2rem 0.6rem;
   text-align: center;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
-  border-collapse: collapse;
+}
+
+.dashboard-table thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-white);
 }
 
 .dashboard-table th {
@@ -109,20 +120,21 @@
   padding-bottom: 2.4rem;
 }
 
-.dashboard-table td {
-  height: 6.2rem;
-  font-size: 1.4rem;
-  padding: 0.4rem 0;
-}
-
-.dashboard-table tr {
+.dashboard-table tbody {
   color: var(--color-dark-variant);
   cursor: pointer;
+}
+
+.dashboard-table td {
+  height: 8.2rem;
+  font-size: 1.4rem;
+  padding: 0.4rem 0;
 }
 
 .dashboard-table tr:hover,
 .dashboard-table tr:active {
   color: var(--color-dark);
+  font-weight: 500;
 }
 
 .dashboard-table img {
@@ -170,8 +182,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
-  gap: 2rem;
-  margin: 1rem 0;
+  gap: 4rem;
+  margin: 2rem 0;
 }
 
 .course {

@@ -30,7 +30,7 @@
   --border-radius-1: 0.4rem;
   --border-radius-2: 1.2rem;
 
-  --box-shadow: 1rem 1rem 4rem 2rem var(--color-light);
+  --box-shadow: 0rem 1rem 4rem 2rem var(--color-dark-variant);
 }
 
 * {
@@ -53,10 +53,11 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555;
+  overflow: hidden;
 }
 
 main {
-  flex: 1;
+  overflow: hidden;
 }
 
 img {
@@ -74,14 +75,14 @@ img {
 
 .heading-primary {
   font-weight: 800;
-  font-size: 3.8rem;
+  font-size: 3.4rem;
   color: var(--color-dark);
   text-align: center;
 }
 
 .heading-secondary {
   font-weight: 600;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   color: var(--color-dark);
 }
 
@@ -96,7 +97,7 @@ img {
 .btn:link,
 .btn:visited {
   display: inline-block;
-  padding: 1.6rem 3.2rem;
+  padding: 1.4rem 2.8rem;
   border-radius: var(--border-radius-2);
   text-decoration: none;
   font-family: inherit;
@@ -108,6 +109,11 @@ img {
 
 .btn-logout {
   background-color: var(--color-secondary);
+}
+
+.btn-logout:hover,
+.btn-logout:active {
+  background-color: var(--color-primary);
 }
 
 .javascript {
