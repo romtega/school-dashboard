@@ -21,7 +21,7 @@ const students = [
     courses: 3,
     score: 9.3,
     email: "montenegro.catarina@gmail.com",
-    imgPath: "img/students/2.jpg",
+    imgPath: "img/students/3.jpg",
   },
   {
     name: "Patricia",
@@ -32,7 +32,7 @@ const students = [
     courses: 2,
     score: 8.2,
     email: "lvalentin@valdez.net.br",
-    imgPath: "img/students/3.jpg",
+    imgPath: "img/students/2.jpg",
   },
   {
     name: "Leticia",
@@ -57,7 +57,7 @@ const students = [
     imgPath: "img/students/5.jpg",
   },
   {
-    name: "Melanie",
+    name: "Leon",
     lastName: " Garza Fuentes",
     age: 25,
     genre: "",

@@ -71,6 +71,10 @@ img {
   background-color: var(--color-background);
 }
 
+.row-white {
+  background-color: var(--color-white);
+}
+
 .hidden {
   display: none;
 }

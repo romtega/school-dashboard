@@ -31,6 +31,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 /************** STUDENT LIST FED FROM DATABASE ***************/
+
 const studentsList = document.querySelector("#students-list");
 
 for (let i = 0; i < students.length; i++) {
@@ -41,15 +42,16 @@ for (let i = 0; i < students.length; i++) {
   const nameCell = document.createElement("td");
   const lastNameCell = document.createElement("td");
   const ageCell = document.createElement("td");
-  const genreCell = document.createElement("td");
   const idCell = document.createElement("td");
   const coursesCell = document.createElement("td");
   const scoreCell = document.createElement("td");
-  const emailCell = document.createElement("td");
   const deleteCell = document.createElement("td");
 
+  const rowColor = i % 2 === 0 ? "row-gray" : "row-white";
+  row.classList.add(rowColor);
+
   img.src = students[i].imgPath;
-  img.alt = `${students[i].name}`;
+  img.alt = `${students[i].name} ${students[i].lastName}`;
   imgCell.appendChild(img);
   nameCell.textContent = students[i].name;
   lastNameCell.textContent = students[i].lastName;
@@ -57,6 +59,8 @@ for (let i = 0; i < students.length; i++) {
   idCell.textContent = students[i].id;
   coursesCell.textContent = students[i].courses;
   scoreCell.textContent = students[i].score;
+  deleteCell.innerHTML = `<ion-icon class="delete-icon" name="trash"></ion-icon
+  >`;
 
   row.appendChild(imgCell);
   row.appendChild(nameCell);
@@ -65,9 +69,36 @@ for (let i = 0; i < students.length; i++) {
   row.appendChild(idCell);
   row.appendChild(coursesCell);
   row.appendChild(scoreCell);
+  row.appendChild(deleteCell);
 
   studentsList.appendChild(row);
 }
+
+/************** SEARCHBAR ***************/
+
+const searchBar = document.querySelector("#searchBar");
+const studentRows = document.querySelectorAll("#students-list tr");
+
+searchBar.addEventListener("input", function () {
+  const searchText = this.value.trim().toLowerCase();
+
+  studentRows.forEach((row) => {
+    const nameCell = row.querySelector("td:nth-child(2)");
+    const lastNameCell = row.querySelector("td:nth-child(3)");
+    if (nameCell || lastNameCell) {
+      const studentName = nameCell.textContent.toLowerCase();
+      const studentLastName = lastNameCell.textContent.toLocaleLowerCase();
+      if (
+        studentName.includes(searchText) ||
+        studentLastName.includes(searchText)
+      ) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    }
+  });
+});
 
 /************** NEW STUDENT FORM ***************/
 

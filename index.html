@@ -41,7 +41,12 @@
             <h1 class="heading-primary">Panel de Alumnos</h1>
             <div class="table-search">
               <ion-icon class="search-icon" name="search"></ion-icon>
-              <input type="text" />
+              <input
+                type="text"
+                name="searchBar"
+                id="searchBar"
+                placeholder="Buscar..."
+              />
             </div>
             <div class="table-sort">
               <ion-icon
@@ -63,36 +68,7 @@
                     <th>Calificacion</th>
                   </tr>
                 </thead>
-                <tbody id="students-list">
-                  <!-- <tr class="row-gray">
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                    <td>
-                      <a href="#"
-                        ><ion-icon class="delete-icon" name="trash"></ion-icon
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                    <td>
-                      <a href="#"
-                        ><ion-icon class="delete-icon" name="trash"></ion-icon
-                      ></a>
-                    </td>
-                  </tr> -->
-                </tbody>
+                <tbody id="students-list"></tbody>
               </table>
             </div>
           </div>
