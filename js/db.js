@@ -1,6 +1,6 @@
 "use strict";
 
-const student = [
+const students = [
   {
     name: "Cesar",
     lastName: "Gutierrez Franco",

@@ -52,7 +52,7 @@
               ></a>
             </div>
             <div class="table-container">
-              <table>
+              <table id="students-container">
                 <thead>
                   <tr>
                     <th></th>
@@ -220,6 +220,83 @@
         </div>
       </section>
     </main>
+
+    <section class="section-form hidden">
+      <div class="form-card">
+        <ion-icon class="close-icon" name="close"></ion-icon>
+        <h3 class="heading-tertiary">Nuevo Alumno</h3>
+        <form class="form-new" id="form-new">
+          <div class="form-inputs">
+            <input
+              type="text"
+              placeholder="Nombre"
+              id="name"
+              name="name"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Apellidos"
+              id="last-name"
+              name="last-name"
+              required
+            />
+          </div>
+          <div class="form-inputs">
+            <input
+              type="number"
+              placeholder="Edad"
+              id="age"
+              name="age"
+              required
+            />
+            <select id="genre" name="genre">
+              <option value="" disabled selected>Genero:</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-inputs">
+            <input
+              type="email"
+              placeholder="Correo"
+              id="email"
+              name="email"
+              required
+            />
+            <input
+              type="text"
+              minlength="7"
+              placeholder="ID"
+              id="id"
+              name="id"
+              required
+            />
+          </div>
+          <div class="form-inputs">
+            <select id="courses" name="courses">
+              <option value="" disabled selected>Materias inscritas:</option>
+              <option value="javascript">Javascript</option>
+              <option value="python">Python</option>
+              <option value="ruby">Ruby on Rails</option>
+              <option value="swift">Swift</option>
+            </select>
+
+            <input
+              type="number"
+              min="1"
+              max="10"
+              placeholder="Calificacion"
+              id="score"
+              name="score"
+              required
+            />
+          </div>
+          <button class="btn btn-new" id="btn-new">Registrar</button>
+        </form>
+      </div>
+    </section>
     <!-- <footer class="footer">
       <p class="footer-text">
         Hecho por

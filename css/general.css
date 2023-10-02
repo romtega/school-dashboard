@@ -31,6 +31,7 @@
   --border-radius-2: 1.2rem;
 
   --box-shadow: 0rem 1rem 4rem 2rem var(--color-dark-variant);
+  --box-shadow-1: 0rem 0.5rem 2rem 1rem var(--color-dark-variant);
 }
 
 * {
@@ -54,6 +55,7 @@ body {
   font-weight: 400;
   color: #555;
   overflow: hidden;
+  position: relative;
 }
 
 main {
@@ -96,8 +98,7 @@ img {
 .btn,
 .btn:link,
 .btn:visited {
-  display: inline-block;
-  padding: 1.4rem 2.8rem;
+  /* display: inline-block; */
   border-radius: var(--border-radius-2);
   text-decoration: none;
   font-family: inherit;
@@ -108,7 +109,21 @@ img {
 }
 
 .btn-logout {
+  padding: 1.4rem 3.6rem;
   background-color: var(--color-secondary);
+}
+
+.btn-new {
+  padding: 1.4rem 4.8rem;
+  background-color: var(--color-secondary);
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+}
+
+.btn-new:hover,
+.btn-new:active {
+  background-color: var(--color-primary);
 }
 
 .btn-logout:hover,

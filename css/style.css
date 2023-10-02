@@ -217,6 +217,74 @@
   justify-content: end;
 }
 
+/************** NEW STUDENT ***************/
+
+.section-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-2);
+  box-shadow: var(--box-shadow-1);
+  border: 2px solid var(--color-white);
+}
+
+.form-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4.8rem 2.4rem;
+}
+
+.close-icon {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  width: 3.6rem;
+  height: 3.6rem;
+}
+
+.form-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.form-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.form-inputs input,
+.form-inputs select {
+  border: 2px solid var(--color-background);
+  padding: 0.4rem;
+  font-size: 1.8rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+  width: 100%;
+  height: 4rem;
+  font-family: inherit;
+}
+
+.form-inputs input:hover,
+.form-inputs select:hover {
+  border: 2px solid var(--color-info-dark);
+}
+
+/************** FOOTER ***************/
+
 .footer {
   text-align: center;
 }
