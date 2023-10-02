@@ -10,6 +10,7 @@ const students = [
     courses: 4,
     score: 10,
     email: "ceguf02@hotmail.com",
+    imgPath: "img/students/1.jpg",
   },
   {
     name: "Pedro",
@@ -20,6 +21,7 @@ const students = [
     courses: 3,
     score: 9.3,
     email: "montenegro.catarina@gmail.com",
+    imgPath: "img/students/2.jpg",
   },
   {
     name: "Patricia",
@@ -30,6 +32,7 @@ const students = [
     courses: 2,
     score: 8.2,
     email: "lvalentin@valdez.net.br",
+    imgPath: "img/students/3.jpg",
   },
   {
     name: "Leticia",
@@ -40,6 +43,7 @@ const students = [
     courses: 4,
     score: 8.6,
     email: "thales.vega@duarte.br",
+    imgPath: "img/students/4.jpg",
   },
   {
     name: "Juan Manuel",
@@ -50,6 +54,7 @@ const students = [
     courses: 1,
     score: 9.8,
     email: "ricardo64@gmail.com",
+    imgPath: "img/students/5.jpg",
   },
   {
     name: "Melanie",
@@ -60,6 +65,7 @@ const students = [
     courses: 4,
     score: 9.5,
     email: "hleon@carrara.com",
+    imgPath: "img/students/6.jpg",
   },
 ];
 

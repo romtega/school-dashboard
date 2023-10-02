@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/queries.css" />
     <!--JS LINKS-->
-    <script defer src="js/script.js"></script>
     <script defer src="js/db.js"></script>
+    <script defer src="js/script.js"></script>
 
     <title>Alumnos | Dashboard</title>
   </head>
@@ -44,15 +44,14 @@
               <input type="text" />
             </div>
             <div class="table-sort">
-              <a href="#"
-                ><ion-icon class="add-icon" name="person-add"></ion-icon
-              ></a>
-              <a href="#"
-                ><ion-icon class="delete-icon" name="trash"></ion-icon
-              ></a>
+              <ion-icon
+                class="add-icon"
+                id="add-icon"
+                name="person-add"
+              ></ion-icon>
             </div>
             <div class="table-container">
-              <table id="students-container">
+              <table>
                 <thead>
                   <tr>
                     <th></th>
@@ -64,8 +63,8 @@
                     <th>Calificacion</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr class="row-gray">
+                <tbody id="students-list">
+                  <!-- <tr class="row-gray">
                     <td><img src="/img/students/ben.jpg" alt="" /></td>
                     <td>Josellys</td>
                     <td>Aguilarte Inojosa</td>
@@ -73,6 +72,11 @@
                     <td>#123456</td>
                     <td>4</td>
                     <td>9.5</td>
+                    <td>
+                      <a href="#"
+                        ><ion-icon class="delete-icon" name="trash"></ion-icon
+                      ></a>
+                    </td>
                   </tr>
                   <tr>
                     <td><img src="/img/students/ben.jpg" alt="" /></td>
@@ -82,95 +86,19 @@
                     <td>#123456</td>
                     <td>4</td>
                     <td>9.5</td>
-                  </tr>
-                  <tr class="row-gray">
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr>
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr class="row-gray">
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr>
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr class="row-gray">
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr>
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr class="row-gray">
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr>
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
-                  <tr class="row-gray">
-                    <td><img src="/img/students/ben.jpg" alt="" /></td>
-                    <td>Josellys</td>
-                    <td>Aguilarte Inojosa</td>
-                    <td>30</td>
-                    <td>#123456</td>
-                    <td>4</td>
-                    <td>9.5</td>
-                  </tr>
+                    <td>
+                      <a href="#"
+                        ><ion-icon class="delete-icon" name="trash"></ion-icon
+                      ></a>
+                    </td>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
           </div>
-          <aside class="dashboard-info">
+          <aside class="dashboard-info" id="dashboard-info">
             <div class="student-img">
-              <img src="/img/students/ben.jpg" alt="" />
+              <img src="/img/students/1.jpg" alt="" />
             </div>
             <h2 class="heading-secondary">Josellys Aguilarte Inojosa</h2>
             <div class="student-info">
@@ -221,9 +149,9 @@
       </section>
     </main>
 
-    <section class="section-form hidden">
+    <section class="section-form hidden" id="section-form">
       <div class="form-card">
-        <ion-icon class="close-icon" name="close"></ion-icon>
+        <ion-icon class="close-icon" id="close-icon" name="close"></ion-icon>
         <h3 class="heading-tertiary">Nuevo Alumno</h3>
         <form class="form-new" id="form-new">
           <div class="form-inputs">
@@ -268,6 +196,7 @@
             <input
               type="text"
               minlength="7"
+              maxlength="7"
               placeholder="ID"
               id="id"
               name="id"
@@ -287,13 +216,15 @@
               type="number"
               min="1"
               max="10"
-              placeholder="Calificacion"
+              placeholder="Calificación"
               id="score"
               name="score"
               required
             />
           </div>
-          <button class="btn btn-new" id="btn-new">Registrar</button>
+          <button type="submit" class="btn btn-new" id="btn-new">
+            Registrar
+          </button>
         </form>
       </div>
     </section>
