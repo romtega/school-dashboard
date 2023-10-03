@@ -1,6 +1,32 @@
 "use strict";
 
-/************** REUSABLE FUNCTIONS ***************/
+/************** GLOBAL VARIABLES ***************/
+const studentsList = document.querySelector("#students-list");
+const studentForm = document.querySelector("#form-new");
+
+const nameInput = document.querySelector("#name");
+const lastNameInput = document.querySelector("#last-name");
+const ageInput = document.querySelector("#age");
+const genreInput = document.querySelector("#genre");
+const idInput = document.querySelector("#id");
+const coursesInput = document.querySelector("#courses");
+const scoreInput = document.querySelector("#score");
+const emailInput = document.querySelector("#email");
+const imgPathInput = document.querySelector("#imgPath");
+
+const addBtn = document.querySelector("#add-icon");
+const closeBtn = document.querySelector("#close-icon");
+const sectionForm = document.querySelector("#section-form");
+const sectionInfo = document.querySelector("#dashboard-info");
+
+const deleteIcon = `<ion-icon class="delete-icon" name="trash"></ion-icon>`;
+
+const searchBar = document.querySelector("#searchBar");
+
+/************** REUSABLE FUNCTIONS AND CLASSES ***************/
+function openForm() {
+  sectionForm.classList.remove("hidden");
+}
 
 function closeForm() {
   sectionForm.classList.add("hidden");
@@ -13,30 +39,13 @@ function closeForm() {
   idInput.value = "";
   coursesInput.value = "";
   scoreInput.value = "";
+  // imgPathInput.value = "";
 }
 
-/************** BTNS FUNCTIONALITY ***************/
-
-const addBtn = document.querySelector("#add-icon");
-const closeBtn = document.querySelector("#close-icon");
-const sectionForm = document.querySelector("#section-form");
-const sectionInfo = document.querySelector("#dashboard-info");
-
-addBtn.addEventListener("click", () => {
-  sectionForm.classList.remove("hidden");
-});
-
-closeBtn.addEventListener("click", () => {
-  closeForm();
-});
-
-/************** STUDENT LIST FED FROM DATABASE ***************/
-
-const studentsList = document.querySelector("#students-list");
-
-for (let i = 0; i < students.length; i++) {
+function createStudentRow(student) {
   const row = document.createElement("tr");
-  const rowColor = i % 2 === 0 ? "row-gray" : "row-white";
+  const rowColor =
+    studentsList.children.length % 2 === 0 ? "row-gray" : "row-white";
   row.classList.add(rowColor);
 
   const imgCell = document.createElement("td");
@@ -49,17 +58,16 @@ for (let i = 0; i < students.length; i++) {
   const scoreCell = document.createElement("td");
   const deleteCell = document.createElement("td");
 
-  img.src = students[i].imgPath || "";
-  img.alt = `${students[i].name} ${students[i].lastName}`;
+  img.src = student.imgPath || "/img/students/blank.png";
+  img.alt = `${student.name} ${student.lastName}`;
   imgCell.appendChild(img);
-  nameCell.textContent = students[i].name;
-  lastNameCell.textContent = students[i].lastName;
-  ageCell.textContent = students[i].age;
-  idCell.textContent = students[i].id;
-  coursesCell.textContent = students[i].courses;
-  scoreCell.textContent = students[i].score;
-  deleteCell.innerHTML = `<ion-icon class="delete-icon" name="trash"></ion-icon
-  >`;
+  nameCell.textContent = student.name;
+  lastNameCell.textContent = student.lastName;
+  ageCell.textContent = student.age;
+  idCell.textContent = student.id;
+  coursesCell.textContent = student.courses;
+  scoreCell.textContent = student.score;
+  deleteCell.innerHTML = deleteIcon;
 
   row.appendChild(imgCell);
   row.appendChild(nameCell);
@@ -70,16 +78,85 @@ for (let i = 0; i < students.length; i++) {
   row.appendChild(scoreCell);
   row.appendChild(deleteCell);
 
-  studentsList.appendChild(row);
+  return row;
 }
 
-/************** SEARCHBAR ***************/
+class Student {
+  constructor(name, lastName, age, genre, email, id, courses, score, imgPath) {
+    this.name = name;
+    this.lastName = lastName;
+    this.age = age;
+    this.genre = genre;
+    this.id = id;
+    this.courses = courses;
+    this.score = score;
+    this.email = email;
+    this.imgPath = imgPath;
+  }
+}
 
-const searchBar = document.querySelector("#searchBar");
-const studentRows = document.querySelectorAll("#students-list tr");
+class Teachers {
+  constructor(fullName, course, imgPath) {
+    this.fullName = fullName;
+    this.course = course;
+    this.imgPath = imgPath;
+  }
+}
+
+/************** BTNS FUNCTIONALITY ***************/
+
+addBtn.addEventListener("click", () => {
+  openForm();
+});
+
+closeBtn.addEventListener("click", () => {
+  closeForm();
+});
+
+/************** STUDENT LIST FED FROM DATABASE ***************/
+
+students.forEach((student) => {
+  studentsList.appendChild(createStudentRow(student));
+});
+
+// /************** NEW STUDENT FORM ***************/
+
+studentForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const nameValue = studentForm["name"].value;
+  const lastNameValue = studentForm["last-name"].value;
+  const ageValue = studentForm["age"].value;
+  const genreValue = studentForm["genre"].value;
+  const idValue = studentForm["id"].value;
+  const coursesValue = studentForm["courses"].value;
+  const scoreValue = studentForm["score"].value;
+  const emailValue = studentForm["email"].value;
+  // const imgPathValue = studentForm["imgPath"].value;
+
+  const newStudent = new Student(
+    nameValue,
+    lastNameValue,
+    ageValue,
+    genreValue,
+    emailValue,
+    idValue,
+    coursesValue,
+    scoreValue,
+    ""
+  );
+
+  students.push(newStudent);
+
+  studentsList.appendChild(createStudentRow(newStudent));
+  closeForm();
+});
+
+// /************** SEARCHBAR ***************/
 
 searchBar.addEventListener("input", function () {
   const searchText = this.value.trim().toLowerCase();
+  const studentRows = document.querySelectorAll("#students-list tr");
 
   studentRows.forEach((row) => {
     const nameCell = row.querySelector("td:nth-child(2)");
@@ -97,88 +174,4 @@ searchBar.addEventListener("input", function () {
       }
     }
   });
-});
-
-/************** NEW STUDENT FORM ***************/
-
-class Student {
-  constructor(name, lastName, age, genre, email, id, courses, score, imgPath) {
-    this.name = name;
-    this.lastName = lastName;
-    this.age = age;
-    this.genre = genre;
-    this.id = id;
-    this.courses = courses;
-    this.score = score;
-    this.email = email;
-    this.imgPath = imgPath || "";
-  }
-}
-
-const studentForm = document.querySelector("#form-new");
-
-studentForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const nameInput = studentForm["name"].value;
-  const lastNameInput = studentForm["last-name"].value;
-  const ageInput = studentForm["age"].value;
-  const genreInput = studentForm["genre"].value;
-  const idInput = studentForm["id"].value;
-  const coursesInput = studentForm["courses"].value;
-  const scoreInput = studentForm["score"].value;
-  const emailInput = studentForm["email"].value;
-  const imgPathInput = studentForm["imgPath"].value;
-
-  const newStudent = new Student(
-    nameInput,
-    lastNameInput,
-    ageInput,
-    genreInput,
-    emailInput,
-    idInput,
-    coursesInput,
-    scoreInput,
-    imgPathInput
-  );
-
-  students.push(newStudent);
-
-  const row = document.createElement("tr");
-  const rowColor = students.length % 2 === 0 ? "row-gray" : "row-white";
-  row.classList.add(rowColor);
-
-  const imgCell = document.createElement("td");
-  const img = document.createElement("img");
-  const nameCell = document.createElement("td");
-  const lastNameCell = document.createElement("td");
-  const ageCell = document.createElement("td");
-  const idCell = document.createElement("td");
-  const coursesCell = document.createElement("td");
-  const scoreCell = document.createElement("td");
-  const deleteCell = document.createElement("td");
-
-  img.src = newStudent.imgPath || "";
-  img.alt = `${newStudent.name} ${newStudent.lastName}`;
-  imgCell.appendChild(img);
-  nameCell.textContent = newStudent.name;
-  lastNameCell.textContent = newStudent.lastName;
-  ageCell.textContent = newStudent.age;
-  idCell.textContent = newStudent.id;
-  coursesCell.textContent = newStudent.courses;
-  scoreCell.textContent = newStudent.score;
-  deleteCell.innerHTML = `<ion-icon class="delete-icon" name="trash"></ion-icon
-  >`;
-
-  row.appendChild(imgCell);
-  row.appendChild(nameCell);
-  row.appendChild(lastNameCell);
-  row.appendChild(ageCell);
-  row.appendChild(idCell);
-  row.appendChild(coursesCell);
-  row.appendChild(scoreCell);
-  row.appendChild(deleteCell);
-
-  studentsList.appendChild(row);
-
-  closeForm();
 });

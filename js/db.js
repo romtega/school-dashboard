@@ -60,7 +60,7 @@ const students = [
     name: "Leon",
     lastName: " Garza Fuentes",
     age: 25,
-    genre: "",
+    genre: "Masculino",
     id: "#72be03",
     courses: 4,
     score: 9.5,
@@ -73,17 +73,21 @@ const teachers = [
   {
     fullName: "Pedro Salazar",
     course: "Javascript",
+    imgPath: "img/teachers/javascript.jpg",
   },
   {
-    fullName: "Lucía Serratos",
+    fullName: "José Agular",
     course: "Python",
+    imgPath: "img/teachers/python.jpg",
   },
   {
     fullName: "Santiago González",
     course: "Ruby on Rails",
+    imgPath: "img/teachers/ruby.jpg",
   },
   {
-    fullName: "José Agular",
+    fullName: "José AgularLucía Serratos",
     course: "Swift",
+    imgPath: "img/teachers/swift.jpg",
   },
 ];
