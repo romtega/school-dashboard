@@ -76,29 +76,33 @@
             <div class="student-img">
               <img src="/img/students/1.jpg" alt="" />
             </div>
-            <h2 class="heading-secondary">Josellys Aguilarte Inojosa</h2>
+            <h2 class="heading-secondary" id="info-full-name">
+              Josellys Aguilarte Inojosa
+            </h2>
             <div class="student-info">
               <div class="info">
                 <p>Edad</p>
-                <span>30</span>
+                <span id="info-age">30</span>
               </div>
               <div>
                 <p>Genero</p>
-                <span>Femenino</span>
+                <span id="info-genre">Femenino</span>
               </div>
               <div>
                 <p>ID</p>
-                <span>#123456</span>
+                <span id="info-id">#123456</span>
               </div>
               <div>
                 <p>Contacto</p>
                 <span
-                  ><a href="mailto:hello@omnifood.com">hello@omnifood.com</a>
+                  ><a id="info-email" href="mailto:hello@omnifood.com"
+                    >hello@omnifood.com</a
+                  >
                 </span>
               </div>
             </div>
             <h3 class="heading-tertiary">Materias</h3>
-            <div class="info-courses">
+            <div class="info-courses" id="info-courses">
               <div class="course">
                 <span class="javascript">Javascript</span>
                 <p>Joel Martinez</p>
@@ -188,13 +192,43 @@
             />
           </div>
           <div class="form-inputs">
-            <select id="courses" name="courses">
-              <option value="" disabled selected>Materias inscritas:</option>
-              <option value="javascript">Javascript</option>
-              <option value="python">Python</option>
-              <option value="ruby">Ruby on Rails</option>
-              <option value="swift">Swift</option>
-            </select>
+            <label>Materias inscritas:</label>
+            <label>
+              <input
+                type="checkbox"
+                name="courses"
+                value="javascript"
+                id="course-javascript"
+              />
+              Javascript
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="courses"
+                value="python"
+                id="course-python"
+              />
+              Python
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="courses"
+                value="ruby"
+                id="course-ruby"
+              />
+              Ruby on Rails
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="courses"
+                value="swift"
+                id="course-swift"
+              />
+              Swift
+            </label>
 
             <input
               type="number"

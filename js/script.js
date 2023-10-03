@@ -37,8 +37,13 @@ function closeForm() {
   genreInput.value = "";
   emailInput.value = "";
   idInput.value = "";
-  coursesInput.value = "";
   scoreInput.value = "";
+  const courseCheckboxes = document.querySelectorAll(
+    'input[name="courses"]:checked'
+  );
+  courseCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
   // imgPathInput.value = "";
 }
 
@@ -65,7 +70,7 @@ function createStudentRow(student) {
   lastNameCell.textContent = student.lastName;
   ageCell.textContent = student.age;
   idCell.textContent = student.id;
-  coursesCell.textContent = student.courses;
+  coursesCell.textContent = student.courses.length;
   scoreCell.textContent = student.score;
   deleteCell.innerHTML = deleteIcon;
 
@@ -129,10 +134,16 @@ studentForm.addEventListener("submit", function (e) {
   const ageValue = studentForm["age"].value;
   const genreValue = studentForm["genre"].value;
   const idValue = studentForm["id"].value;
-  const coursesValue = studentForm["courses"].value;
   const scoreValue = studentForm["score"].value;
   const emailValue = studentForm["email"].value;
+  const coursesValue = [];
+  const courseCheckboxes = document.querySelectorAll(
+    'input[name="courses"]:checked'
+  );
   // const imgPathValue = studentForm["imgPath"].value;
+  courseCheckboxes.forEach((checkbox) => {
+    coursesValue.push(checkbox.value);
+  });
 
   const newStudent = new Student(
     nameValue,
@@ -151,6 +162,8 @@ studentForm.addEventListener("submit", function (e) {
   studentsList.appendChild(createStudentRow(newStudent));
   closeForm();
 });
+
+// /************** STUDENT INFO ***************/
 
 // /************** SEARCHBAR ***************/
 
