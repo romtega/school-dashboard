@@ -20,7 +20,7 @@ const students = [
     id: "#123c56",
     courses: ["Javascript", "Ruby on Rails", "Swift"],
     score: 9.3,
-    email: "montenegro.catarina@gmail.com",
+    email: "monteneg@gmail.com",
     imgPath: "img/students/3.jpg",
   },
   {
@@ -46,7 +46,7 @@ const students = [
     imgPath: "img/students/4.jpg",
   },
   {
-    name: "Juan Manuel",
+    name: "Manuel",
     lastName: "Gutierrez Perez",
     age: 30,
     genre: "Otro",
@@ -81,12 +81,12 @@ const teachers = [
     imgPath: "img/teachers/python.jpg",
   },
   {
-    fullName: "Santiago González",
+    fullName: "Monica González",
     course: "Ruby on Rails",
     imgPath: "img/teachers/ruby.jpg",
   },
   {
-    fullName: "José AgularLucía Serratos",
+    fullName: "Lucía Serratos",
     course: "Swift",
     imgPath: "img/teachers/swift.jpg",
   },

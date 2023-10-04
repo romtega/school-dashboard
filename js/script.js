@@ -21,9 +21,10 @@ const sectionInfo = document.querySelector("#dashboard-info");
 
 const deleteIcon = `<ion-icon class="delete-icon" name="trash"></ion-icon>`;
 
-const searchBar = document.querySelector("#searchBar");
+const searchBar = document.querySelector("#search-bar");
 
 /************** REUSABLE FUNCTIONS AND CLASSES ***************/
+
 function openForm() {
   sectionForm.classList.remove("hidden");
 }
@@ -38,12 +39,11 @@ function closeForm() {
   emailInput.value = "";
   idInput.value = "";
   scoreInput.value = "";
-  const courseCheckboxes = document.querySelectorAll(
-    'input[name="courses"]:checked'
-  );
-  courseCheckboxes.forEach((checkbox) => {
-    checkbox.checked = false;
-  });
+  document
+    .querySelectorAll('input[name="courses"]:checked')
+    .forEach((checkbox) => {
+      checkbox.checked = false;
+    });
   // imgPathInput.value = "";
 }
 
@@ -140,10 +140,10 @@ studentForm.addEventListener("submit", function (e) {
   const courseCheckboxes = document.querySelectorAll(
     'input[name="courses"]:checked'
   );
-  // const imgPathValue = studentForm["imgPath"].value;
   courseCheckboxes.forEach((checkbox) => {
     coursesValue.push(checkbox.value);
   });
+  // const imgPathValue = studentForm["imgPath"].value;
 
   const newStudent = new Student(
     nameValue,
@@ -163,7 +163,103 @@ studentForm.addEventListener("submit", function (e) {
   closeForm();
 });
 
-// /************** STUDENT INFO ***************/
+// /************** DELETE STUDENT ***************/
+
+studentsList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-icon")) {
+    const row = e.target.closest("tr");
+    if (row) {
+      row.remove();
+    }
+  }
+});
+
+// /************** SORT FUNCTIONALITY ***************/
+let sortDirection = "asc";
+
+function sortStudents(sortProperty) {
+  students.sort((a, b) => {
+    const valueA = a[sortProperty];
+    const valueB = b[sortProperty];
+
+    if (sortDirection === "asc") {
+      return valueA.localeCompare(valueB);
+    } else {
+      return valueB.localeCompare(valueA);
+    }
+  });
+
+  updateStudentTable();
+}
+
+function updateStudentTable() {
+  while (studentsList.firstChild) {
+    studentsList.removeChild(studentsList.firstChild);
+  }
+
+  students.forEach((student) => {
+    studentsList.appendChild(createStudentRow(student));
+  });
+}
+
+const tableHeaders = document.querySelectorAll("thead th.sortable");
+tableHeaders.forEach((header) => {
+  header.addEventListener("click", (e) => {
+    const sortProperty = header.getAttribute("data-sort");
+    if (sortProperty) {
+      sortDirection = sortDirection === "asc" ? "desc" : "asc";
+      console.log("Sorting by:", sortProperty, "Direction:", sortDirection);
+      sortStudents(sortProperty);
+    }
+  });
+});
+
+// /************** DASHBOARD INFO ***************/
+
+studentsList.addEventListener("click", (e) => {
+  sectionInfo.classList.remove("hidden");
+  const clickedRow = e.target.closest("tr");
+  if (clickedRow) {
+    const studentId = clickedRow.querySelector("td:nth-child(5)").textContent;
+    const student = students.find((s) => s.id === studentId);
+    if (student) {
+      updateDashboardInfo(student);
+    }
+  }
+});
+
+function updateDashboardInfo(student) {
+  const infoFullName = document.querySelector("#info-full-name");
+  const infoAge = document.querySelector("#info-age");
+  const infoGenre = document.querySelector("#info-genre");
+  const infoEmail = document.querySelector("#info-email");
+  const infoCourses = document.querySelector("#info-courses");
+  const studentImg = document.querySelector(".student-img img");
+
+  infoFullName.textContent = `${student.name} ${student.lastName}`;
+  infoAge.textContent = student.age;
+  infoGenre.textContent = student.genre;
+  infoEmail.innerHTML = `<a href="mailto:${student.email}">${student.email}</a>`;
+
+  infoCourses.innerHTML = "";
+
+  student.courses.forEach((courseName) => {
+    const course = teachers.find((teacher) => teacher.course === courseName);
+    if (course) {
+      const courseElement = document.createElement("div");
+      courseElement.classList.add("course");
+      courseElement.innerHTML = `
+        <span class="${course.course.toLowerCase()}">${course.course}</span>
+        <p>${course.fullName}</p>
+        <img src="${course.imgPath}" alt="" class="teacher-img" />
+      `;
+      infoCourses.appendChild(courseElement);
+    }
+  });
+
+  studentImg.src = student.imgPath || "/img/students/blank.png";
+  studentImg.alt = `${student.name} ${student.lastName}`;
+}
 
 // /************** SEARCHBAR ***************/
 

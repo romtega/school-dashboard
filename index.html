@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <!--FAVICON-->
-    <link rel="shortcut icon" href="" />
+    <link rel="shortcut icon" href="#" />
     <!--CSS LINKS-->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/general.css" />
@@ -42,8 +42,8 @@
               <ion-icon class="search-icon" name="search"></ion-icon>
               <input
                 type="text"
-                name="searchBar"
-                id="searchBar"
+                name="search-bar"
+                id="search-bar"
                 placeholder="Buscar..."
               />
             </div>
@@ -59,12 +59,12 @@
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Edad</th>
-                    <th>ID</th>
-                    <th>No. Materias</th>
-                    <th>Calificacion</th>
+                    <th class="sortable" data-sort="name">Nombre</th>
+                    <th class="sortable" data-sort="lastName">Apellidos</th>
+                    <th class="sortable" data-sort="age">Edad</th>
+                    <th class="sortable" data-sort="id">ID</th>
+                    <th class="sortable" data-sort="courses">No. Materias</th>
+                    <th class="sortable" data-sort="score">Calificacion</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -72,7 +72,7 @@
               </table>
             </div>
           </div>
-          <aside class="dashboard-info" id="dashboard-info">
+          <aside class="dashboard-info hidden" id="dashboard-info">
             <div class="student-img">
               <img src="/img/students/1.jpg" alt="" />
             </div>
@@ -102,36 +102,7 @@
               </div>
             </div>
             <h3 class="heading-tertiary">Materias</h3>
-            <div class="info-courses" id="info-courses">
-              <div class="course">
-                <span class="javascript">Javascript</span>
-                <p>Joel Martinez</p>
-                <img
-                  src="/img/teachers/javascript.jpg"
-                  alt=""
-                  class="teacher-img"
-                />
-              </div>
-              <div class="course">
-                <span class="python">Python</span>
-                <p>Joel Martinez</p>
-                <img
-                  src="/img/teachers/python.jpg"
-                  alt=""
-                  class="teacher-img"
-                />
-              </div>
-              <div class="course">
-                <span class="ruby">Ruby on Rails</span>
-                <p>Joel Martinez</p>
-                <img src="/img/teachers/ruby.jpg" alt="" class="teacher-img" />
-              </div>
-              <div class="course">
-                <span class="swift">Swift</span>
-                <p>Joel Martinez</p>
-                <img src="/img/teachers/swift.jpg" alt="" class="teacher-img" />
-              </div>
-            </div>
+            <div class="info-courses" id="info-courses"></div>
           </aside>
         </div>
       </section>
@@ -168,9 +139,9 @@
             />
             <select id="genre" name="genre">
               <option value="" disabled selected>Genero:</option>
-              <option value="masculino">Masculino</option>
-              <option value="femenino">Femenino</option>
-              <option value="otro">Otro</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
             </select>
           </div>
           <div class="form-inputs">
@@ -192,7 +163,7 @@
             />
           </div>
           <div class="form-inputs">
-            <label>Materias inscritas:</label>
+            <label class="checkbox-label">Materias inscritas:</label>
             <label>
               <input
                 type="checkbox"
@@ -218,7 +189,7 @@
                 value="ruby"
                 id="course-ruby"
               />
-              Ruby on Rails
+              Ruby
             </label>
             <label>
               <input
@@ -258,6 +229,7 @@
         <a href="mailto:romtega88@gmail.com">romtega88@gmail.com</a>
       </p>
     </footer> -->
+
     <!--ION ICONS-->
     <script
       type="module"

@@ -119,6 +119,7 @@
 .dashboard-table th {
   font-size: 1.8rem;
   padding-bottom: 2.4rem;
+  cursor: pointer;
 }
 
 .dashboard-table tbody {
@@ -147,7 +148,8 @@
 
 .dashboard-info {
   padding: 0.6rem 1.2rem;
-  overflow: scroll;
+  overflow-y: scroll;
+  width: 25%;
 }
 .student-img {
   text-align: center;
@@ -184,7 +186,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
-  gap: 4rem;
+  row-gap: 5rem;
   margin: 2rem 0;
 }
 
@@ -193,7 +195,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1rem;
 }
 
 .course span {
@@ -284,6 +286,15 @@
 .form-inputs input:hover,
 .form-inputs select:hover {
   border: 2px solid var(--color-info-dark);
+}
+
+.checkbox-label {
+  font-size: 1.4rem;
+}
+
+input[type="checkbox"] {
+  width: 2em;
+  height: 2rem;
 }
 
 /************** FOOTER ***************/

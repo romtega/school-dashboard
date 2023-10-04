@@ -67,6 +67,10 @@ img {
   object-fit: cover;
 }
 
+a {
+  color: var(--color-dark);
+}
+
 .row-gray {
   background-color: var(--color-background);
 }
@@ -90,6 +94,7 @@ img {
   font-weight: 600;
   font-size: 2.4rem;
   color: var(--color-dark);
+  text-align: center;
 }
 
 .heading-tertiary {
