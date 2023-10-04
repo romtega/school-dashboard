@@ -78,7 +78,7 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-bottom: 2rem;
+  margin: 0 2rem 3rem 0;
 }
 
 .add-icon {
@@ -86,6 +86,11 @@
   width: 3.2rem;
   color: var(--color-dark);
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-icon:hover {
+  color: var(--color-primary);
 }
 
 .delete-icon {
@@ -93,6 +98,11 @@
   width: 2.6rem;
   color: var(--color-info-dark);
   padding: 0 1.2rem;
+  transition: all 0.3s;
+}
+
+.delete-icon:hover {
+  color: var(--color-danger);
 }
 
 /************** TABLE ***************/
@@ -107,7 +117,6 @@
   padding: 0.2rem 0;
   text-align: center;
   letter-spacing: 0.5px;
-  transition: all 0.3s ease;
 }
 
 .dashboard-table thead {
@@ -131,6 +140,10 @@
   height: 8.2rem;
   font-size: 1.4rem;
   padding: 0.4rem 0;
+}
+
+.dashboard-table tr {
+  transition: all 0.3s;
 }
 
 .dashboard-table tr:hover,
@@ -179,14 +192,15 @@
 
 .student-info span {
   font-size: 1.4rem;
-  color: var(--color-info-dark);
+  color: var(--color-dark-variant);
+  font-weight: 300;
 }
 
 .info-courses {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
-  row-gap: 5rem;
+  row-gap: 3.2rem;
   margin: 2rem 0;
 }
 
@@ -295,10 +309,9 @@
 input[type="checkbox"] {
   width: 2em;
   height: 2rem;
+  margin-bottom: 1rem;
 }
 
-/************** FOOTER ***************/
-
-.footer {
+label {
   text-align: center;
 }

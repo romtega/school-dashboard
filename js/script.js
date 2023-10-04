@@ -63,7 +63,7 @@ function createStudentRow(student) {
   const scoreCell = document.createElement("td");
   const deleteCell = document.createElement("td");
 
-  img.src = student.imgPath || "/img/students/blank.png";
+  img.src = student.imgPath || "./img/students/blank.png";
   img.alt = `${student.name} ${student.lastName}`;
   imgCell.appendChild(img);
   nameCell.textContent = student.name;
@@ -218,9 +218,9 @@ tableHeaders.forEach((header) => {
 
 studentsList.addEventListener("click", (e) => {
   sectionInfo.classList.remove("hidden");
-  const clickedRow = e.target.closest("tr");
-  if (clickedRow) {
-    const studentId = clickedRow.querySelector("td:nth-child(5)").textContent;
+  const row = e.target.closest("tr");
+  if (row) {
+    const studentId = row.querySelector("td:nth-child(5)").textContent;
     const student = students.find((s) => s.id === studentId);
     if (student) {
       updateDashboardInfo(student);
@@ -257,7 +257,7 @@ function updateDashboardInfo(student) {
     }
   });
 
-  studentImg.src = student.imgPath || "/img/students/blank.png";
+  studentImg.src = student.imgPath || "./img/students/blank.png";
   studentImg.alt = `${student.name} ${student.lastName}`;
 }
 

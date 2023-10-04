@@ -68,7 +68,8 @@ img {
 }
 
 a {
-  color: var(--color-dark);
+  color: var(--color-dark-variant);
+  text-decoration: none;
 }
 
 .row-gray {

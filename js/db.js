@@ -10,7 +10,7 @@ const students = [
     courses: ["Javascript", "Python", "Ruby on Rails", "Swift"],
     score: 10,
     email: "ceguf02@hotmail.com",
-    imgPath: "img/students/1.jpg",
+    imgPath: "./img/students/1.jpg",
   },
   {
     name: "Pedro",
@@ -21,7 +21,7 @@ const students = [
     courses: ["Javascript", "Ruby on Rails", "Swift"],
     score: 9.3,
     email: "monteneg@gmail.com",
-    imgPath: "img/students/3.jpg",
+    imgPath: "./img/students/3.jpg",
   },
   {
     name: "Patricia",
@@ -32,7 +32,7 @@ const students = [
     courses: ["Javascript"],
     score: 8.2,
     email: "lvalentin@valdez.net.br",
-    imgPath: "img/students/2.jpg",
+    imgPath: "./img/students/2.jpg",
   },
   {
     name: "Leticia",
@@ -43,7 +43,7 @@ const students = [
     courses: ["Ruby on Rails", "Swift"],
     score: 8.6,
     email: "thales.vega@duarte.br",
-    imgPath: "img/students/4.jpg",
+    imgPath: "./img/students/4.jpg",
   },
   {
     name: "Manuel",
@@ -54,7 +54,7 @@ const students = [
     courses: ["Swift"],
     score: 9.8,
     email: "ricardo64@gmail.com",
-    imgPath: "img/students/5.jpg",
+    imgPath: "./img/students/5.jpg",
   },
   {
     name: "Leon",
@@ -65,7 +65,7 @@ const students = [
     courses: ["Javascript", "Python", "Ruby on Rails", "Swift"],
     score: 9.5,
     email: "hleon@carrara.com",
-    imgPath: "img/students/6.jpg",
+    imgPath: "./img/students/6.jpg",
   },
 ];
 
@@ -73,21 +73,21 @@ const teachers = [
   {
     fullName: "Pedro Salazar",
     course: "Javascript",
-    imgPath: "img/teachers/javascript.jpg",
+    imgPath: "./img/teachers/javascript.jpg",
   },
   {
     fullName: "José Agular",
     course: "Python",
-    imgPath: "img/teachers/python.jpg",
+    imgPath: "./img/teachers/python.jpg",
   },
   {
     fullName: "Monica González",
     course: "Ruby on Rails",
-    imgPath: "img/teachers/ruby.jpg",
+    imgPath: "./img/teachers/ruby.jpg",
   },
   {
     fullName: "Lucía Serratos",
     course: "Swift",
-    imgPath: "img/teachers/swift.jpg",
+    imgPath: "./img/teachers/swift.jpg",
   },
 ];
