@@ -31,6 +31,10 @@ function openForm() {
 
 function closeForm() {
   sectionForm.classList.add("hidden");
+  const checkboxInput = document.querySelectorAll(
+    'input[name="courses"]:checked'
+  );
+  /* has to be delcared here to re-evaluate the checkboxes after the form gets close*/
 
   nameInput.value = "";
   lastNameInput.value = "";
@@ -39,18 +43,16 @@ function closeForm() {
   emailInput.value = "";
   idInput.value = "";
   scoreInput.value = "";
-  document
-    .querySelectorAll('input[name="courses"]:checked')
-    .forEach((checkbox) => {
-      checkbox.checked = false;
-    });
+  checkboxInput.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
   // imgPathInput.value = "";
 }
 
 function createStudentRow(student) {
   const row = document.createElement("tr");
   const rowColor =
-    studentsList.children.length % 2 === 0 ? "row-gray" : "row-white";
+    studentsList.rows.length % 2 === 0 ? "row-gray" : "row-white";
   row.classList.add(rowColor);
 
   const imgCell = document.createElement("td");
@@ -131,16 +133,16 @@ studentForm.addEventListener("submit", function (e) {
 
   const nameValue = studentForm["name"].value;
   const lastNameValue = studentForm["last-name"].value;
-  const ageValue = studentForm["age"].value;
+  const ageValue = parseInt(studentForm["age"].value);
   const genreValue = studentForm["genre"].value;
   const idValue = studentForm["id"].value;
   const scoreValue = studentForm["score"].value;
   const emailValue = studentForm["email"].value;
   const coursesValue = [];
-  const courseCheckboxes = document.querySelectorAll(
+  const coursesCheckboxes = document.querySelectorAll(
     'input[name="courses"]:checked'
   );
-  courseCheckboxes.forEach((checkbox) => {
+  coursesCheckboxes.forEach((checkbox) => {
     coursesValue.push(checkbox.value);
   });
   // const imgPathValue = studentForm["imgPath"].value;
@@ -163,16 +165,51 @@ studentForm.addEventListener("submit", function (e) {
   closeForm();
 });
 
-// /************** DELETE STUDENT ***************/
+// /************** DASHBOARD INFO ***************/
 
 studentsList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("delete-icon")) {
-    const row = e.target.closest("tr");
-    if (row) {
-      row.remove();
-    }
+  sectionInfo.classList.remove("hidden");
+  const row = e.target.closest("tr");
+  if (row) {
+    const rowIndex = row.rowIndex - 1;
+    const student = students[rowIndex];
+    updateDashboardInfo(student);
   }
 });
+
+function updateDashboardInfo(student) {
+  const infoFullName = document.querySelector("#info-full-name");
+  const infoAge = document.querySelector("#info-age");
+  const infoGenre = document.querySelector("#info-genre");
+  const infoEmail = document.querySelector("#info-email");
+  const infoCourses = document.querySelector("#info-courses");
+  const infoId = document.querySelector("#info-id");
+  const studentImg = document.querySelector(".student-img img");
+
+  infoFullName.textContent = `${student.name} ${student.lastName}`;
+  infoAge.textContent = student.age;
+  infoGenre.textContent = student.genre;
+  infoId.textContent = student.id;
+  infoEmail.innerHTML = `<a href="mailto:${student.email}">${student.email}</a>`;
+  infoCourses.innerHTML = "";
+
+  student.courses.forEach((courseName) => {
+    const course = teachers.find((teacher) => teacher.course === courseName);
+    if (course) {
+      const courseElement = document.createElement("div");
+      courseElement.classList.add("course");
+      courseElement.innerHTML = `
+        <span class="${course.course.toLowerCase()}">${course.course}</span>
+        <p>${course.fullName}</p>
+        <img src="${course.imgPath}" alt="" class="teacher-img" />
+      `;
+      infoCourses.appendChild(courseElement);
+    }
+  });
+
+  studentImg.src = student.imgPath || "./img/students/blank.png";
+  studentImg.alt = `${student.name} ${student.lastName}`;
+}
 
 // /************** SORT FUNCTIONALITY ***************/
 let sortDirection = "asc";
@@ -214,53 +251,6 @@ tableHeaders.forEach((header) => {
   });
 });
 
-// /************** DASHBOARD INFO ***************/
-
-studentsList.addEventListener("click", (e) => {
-  sectionInfo.classList.remove("hidden");
-  const row = e.target.closest("tr");
-  if (row) {
-    const studentId = row.querySelector("td:nth-child(5)").textContent;
-    const student = students.find((s) => s.id === studentId);
-    if (student) {
-      updateDashboardInfo(student);
-    }
-  }
-});
-
-function updateDashboardInfo(student) {
-  const infoFullName = document.querySelector("#info-full-name");
-  const infoAge = document.querySelector("#info-age");
-  const infoGenre = document.querySelector("#info-genre");
-  const infoEmail = document.querySelector("#info-email");
-  const infoCourses = document.querySelector("#info-courses");
-  const studentImg = document.querySelector(".student-img img");
-
-  infoFullName.textContent = `${student.name} ${student.lastName}`;
-  infoAge.textContent = student.age;
-  infoGenre.textContent = student.genre;
-  infoEmail.innerHTML = `<a href="mailto:${student.email}">${student.email}</a>`;
-
-  infoCourses.innerHTML = "";
-
-  student.courses.forEach((courseName) => {
-    const course = teachers.find((teacher) => teacher.course === courseName);
-    if (course) {
-      const courseElement = document.createElement("div");
-      courseElement.classList.add("course");
-      courseElement.innerHTML = `
-        <span class="${course.course.toLowerCase()}">${course.course}</span>
-        <p>${course.fullName}</p>
-        <img src="${course.imgPath}" alt="" class="teacher-img" />
-      `;
-      infoCourses.appendChild(courseElement);
-    }
-  });
-
-  studentImg.src = student.imgPath || "./img/students/blank.png";
-  studentImg.alt = `${student.name} ${student.lastName}`;
-}
-
 // /************** SEARCHBAR ***************/
 
 searchBar.addEventListener("input", function () {
@@ -283,4 +273,15 @@ searchBar.addEventListener("input", function () {
       }
     }
   });
+});
+
+// /************** DELETE STUDENT ***************/
+
+studentsList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-icon")) {
+    const row = e.target.closest("tr");
+    if (row) {
+      row.remove();
+    }
+  }
 });

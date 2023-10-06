@@ -38,6 +38,7 @@
   padding: 2.4rem;
   overflow: hidden;
   height: 84vh;
+  border: 1px solid var(--color-light);
 }
 
 .dashboard-table {
