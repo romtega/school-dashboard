@@ -1,9 +1,12 @@
 "use strict";
 
 /************** GLOBAL VARIABLES ***************/
-const studentsList = document.querySelector("#students-list");
-const studentForm = document.querySelector("#form-new");
 
+const studentsList = document.querySelector("#students-list");
+const sectionForm = document.querySelector("#section-form");
+const searchBar = document.querySelector("#search-bar");
+
+// Form elements
 const nameInput = document.querySelector("#name");
 const lastNameInput = document.querySelector("#last-name");
 const ageInput = document.querySelector("#age");
@@ -14,14 +17,21 @@ const scoreInput = document.querySelector("#score");
 const emailInput = document.querySelector("#email");
 const imgPathInput = document.querySelector("#imgPath");
 
+//Dashboard Info elements
+const sectionInfo = document.querySelector("#dashboard-info");
+const studentForm = document.querySelector("#form-new");
+
+const infoFullName = document.querySelector("#info-full-name");
+const infoAge = document.querySelector("#info-age");
+const infoGenre = document.querySelector("#info-genre");
+const infoEmail = document.querySelector("#info-email");
+const infoCourses = document.querySelector("#info-courses");
+const infoId = document.querySelector("#info-id");
+const studentImg = document.querySelector(".student-img img");
+
 const addBtn = document.querySelector("#add-icon");
 const closeBtn = document.querySelector("#close-icon");
-const sectionForm = document.querySelector("#section-form");
-const sectionInfo = document.querySelector("#dashboard-info");
-
 const deleteIcon = `<ion-icon class="delete-icon" name="trash"></ion-icon>`;
-
-const searchBar = document.querySelector("#search-bar");
 
 /************** REUSABLE FUNCTIONS AND CLASSES ***************/
 
@@ -34,7 +44,7 @@ function closeForm() {
   const checkboxInput = document.querySelectorAll(
     'input[name="courses"]:checked'
   );
-  /* has to be delcared here to re-evaluate the checkboxes after the form gets close*/
+  /* has to be declared here to re-evaluate the checkboxes after the form gets close*/
 
   nameInput.value = "";
   lastNameInput.value = "";
@@ -49,11 +59,18 @@ function closeForm() {
   // imgPathInput.value = "";
 }
 
+function updateRowColors() {
+  const rows = studentsList.querySelectorAll("tr");
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    const rowColor = i % 2 === 0 ? "row-gray" : "row-white";
+    row.className = rowColor;
+  }
+}
+
 function createStudentRow(student) {
   const row = document.createElement("tr");
-  const rowColor =
-    studentsList.rows.length % 2 === 0 ? "row-gray" : "row-white";
-  row.classList.add(rowColor);
+  updateRowColors();
 
   const imgCell = document.createElement("td");
   const img = document.createElement("img");
@@ -162,6 +179,8 @@ studentForm.addEventListener("submit", function (e) {
   students.push(newStudent);
 
   studentsList.appendChild(createStudentRow(newStudent));
+  updateRowColors();
+
   closeForm();
 });
 
@@ -178,14 +197,6 @@ studentsList.addEventListener("click", (e) => {
 });
 
 function updateDashboardInfo(student) {
-  const infoFullName = document.querySelector("#info-full-name");
-  const infoAge = document.querySelector("#info-age");
-  const infoGenre = document.querySelector("#info-genre");
-  const infoEmail = document.querySelector("#info-email");
-  const infoCourses = document.querySelector("#info-courses");
-  const infoId = document.querySelector("#info-id");
-  const studentImg = document.querySelector(".student-img img");
-
   infoFullName.textContent = `${student.name} ${student.lastName}`;
   infoAge.textContent = student.age;
   infoGenre.textContent = student.genre;
@@ -227,6 +238,7 @@ function sortStudents(sortProperty) {
   });
 
   updateStudentTable();
+  updateRowColors();
 }
 
 function updateStudentTable() {
@@ -280,8 +292,18 @@ searchBar.addEventListener("input", function () {
 studentsList.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-icon")) {
     const row = e.target.closest("tr");
+    console.log(row);
+
     if (row) {
+      const rowIndex = row.rowIndex - 1;
+      const student = students[rowIndex];
+      if (infoFullName.textContent === `${student.name} ${student.lastName}`) {
+        sectionInfo.classList.add("hidden");
+      }
+
+      students.splice(rowIndex, 1);
       row.remove();
+      updateRowColors();
     }
   }
 });
